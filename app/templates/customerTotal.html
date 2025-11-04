@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System - Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Added navigation bar at top of page -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">POS</span>
+                <span class="navbar-title">Point of Sale System</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="{{ url_for('home') }}" class="nav-link active">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pos-container summary-container">
+        <div class="pos-header">
+            <h1>Order Summary</h1>
+            <p class="subtitle">Price Breakdown</p>
+        </div>
+
+        <div class="summary-card">
+            <h2>Price Summary</h2>
+            <ul class="price-list">
+                <li>
+                    <h4>Sticker Total</h4>
+                    <span class="price">{{ stickerTotal }}</span>
+                </li>
+                <li>
+                    <h4>Keychain Total</h4>
+                    <span class="price">{{ keychainTotal }}</span>
+                </li>
+                <li>
+                    <h4>Bookmark Total</h4>
+                    <span class="price">{{ bookmarkTotal }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="total-section">
+            <h1>Total Price: <span class="total-amount">{{ totalPrice }}</span></h1>
+        </div>
+
+        <form action="/checkout" method="POST" class="checkout-form">
+            <button id="checkout" type="submit" class="checkout-btn">Proceed to Checkout</button>
+        </form>
+    </div>
+</body>
+</html>

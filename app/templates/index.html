@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System - Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Added navigation bar at top of page -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">POS</span>
+                <span class="navbar-title">Point of Sale System</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="{{ url_for('home') }}" class="nav-link active">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pos-container">
+        <div class="pos-header">
+            <h1>POS System</h1>
+            <p class="subtitle">Order Management</p>
+        </div>
+        
+        <form action="/process" method="POST" class="pos-form">
+            <div class="form-grid">
+                <div class="keychain form-group">
+                    <label for="keychain">Keychain</label>
+                    <input type="number" id="keychain" name="keychainAmount" min="0" value="0">
+                    <span class="form-hint">Quantity</span>
+                </div>
+
+                <div class="stickers form-group">
+                    <label for="stickers">Stickers</label>
+                    <input type="number" id="stickers" name="stickerAmount" min="0" value="0">
+                    <span class="form-hint">Quantity</span>
+                </div>
+
+                <div class="bookmarks form-group">
+                    <label for="bookmarks">Bookmarks</label>
+                    <input type="number" id="bookmarks" name="bookmarkAmount" min="0" value="0">
+                    <span class="form-hint">Quantity</span>
+                </div>
+            </div>
+
+            <button id="submit" type="submit" class="submit-btn">Process Order</button>
+        </form>
+    </div>
+</body>
+</html>
