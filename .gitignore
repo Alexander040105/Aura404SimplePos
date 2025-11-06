@@ -1,2 +1,6 @@
 *.env
 .venv
+credentials.json
+app/credentials.json
+*.json
+app/credentials.json
